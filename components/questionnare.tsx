@@ -45,9 +45,9 @@ const Questionnare = () => {
     };
 
     const tryAgain = () => {
-        setCurrentNode(initialNode)
-        setHistory(new History())
-    }
+        setCurrentNode(initialNode);
+        setHistory(new History());
+    };
     const handleYes = () => {
         if (currentNode.yesNode) {
             history.push(currentNode, true);
