@@ -43,6 +43,11 @@ const Questionnare = () => {
             setCurrentNode(history.pop());
         }
     };
+
+    const tryAgain = () => {
+        setCurrentNode(initialNode)
+        setHistory(new History())
+    }
     const handleYes = () => {
         if (currentNode.yesNode) {
             history.push(currentNode, true);
@@ -78,7 +83,7 @@ const Questionnare = () => {
                         </div>
                         <button
                             className="bg-white p-2 w-fit text-black m-auto"
-                            onClick={() => setCurrentNode(initialNode)}
+                            onClick={() => tryAgain()}
                         >
                             {" "}
                             Try Again
