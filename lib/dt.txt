@@ -1,13 +1,42 @@
-import { DecisionTreeNode } from './decisionmaker.ts'; // Assuming DecisionTreeNode is in a separate file
-
-describe('DecisionTreeNode', () => {
-    it('should simulate asking a question and resolve with user response', async () => {
-        const question = "Is the computer completely unresponsive when you try to turn it on?";
-        const expectedResponse = true; // Assuming the user responds with true
-
-        const node = new DecisionTreeNode(question);
-        const userResponse = await node.ask();
-
-        expect(userResponse).toEqual(expectedResponse);
-    });
-});
+initialNode: Does the computer have power issues?
+├── powerConnectedNode: Is the computer plugged in and the power switch on?
+│   ├── yesNode: powerSupplyFanNode: Is the power supply fan spinning?
+│   │   ├── yesNode: displayMonitorNode: Is there any display on the monitor?
+│   │   │   ├── yesNode: beepSoundNode: Can you hear any beeps when you start the computer?
+│   │   │   │   ├── yesNode: beepCodeConclusion: Beep codes indicate a problem with the memory. 
+│   │   │   │   │            Try reseating the RAM sticks or replacing them. Consult the internet 
+│   │   │   │   │            for beep codes corresponding to your motherboard to determine the issue.
+│   │   │   │   └── noNode: removeComponentsNode: There may be an issue with the motherboard or other components. 
+│   │   │   │                Try removing non-essential components and see if it boots.
+│   │   │   │                ├── noNode: checkHardwareIssuesNode: Are there any hardware issues like unusual noises or overheating?
+│   │   │   │                │   ├── yesNode: unusualNoisesNode: Is the computer making any unusual noises?
+│   │   │   │                │   │   ├── yesNode: checkCablesNode: Check for loose cables and components inside the case.
+│   │   │   │                │   │   │   └── noNode: consultProfessionalNode: Consider consulting a professional.
+│   │   │   │                │   │   └── noNode: overheatingNode: Is the computer overheating?
+│   │   │   │                │   │       ├── yesNode: workingFansNode: Ensure that all fans are working and the heatsinks are properly seated.
+│   │   │   │                │   │       │   └── noNode: consultProfessionalNode: Consider consulting a professional.
+│   │   │   │                │   │       └── noNode: safeModeNode: Check if the computer works in safe mode.
+│   │   │   │                │   │           ├── yesNode: updateDriversNode: Try updating drivers or reinstalling the OS.
+│   │   │   │                │   │           └── noNode: consultProfessionalNode: Consider consulting a professional.
+│   │   │   └── noNode: checkMonitorConnectionNode: Is the monitor properly connected and switched on?
+│   │   │                 ├── yesNode: unusualNoisesNode: Is the computer making any unusual noises?
+│   │   │                 │   ├── yesNode: checkCablesNode: Check for loose cables and components inside the case.
+│   │   │                 │   └── noNode: overheatingNode: Is the computer overheating?
+│   │   │                 └── noNode: Check if the monitor is properly connected and it is working.
+│   │   └── noNode: powerSupplyCheckNode: Check the power supply connections or try a different power supply.
+│   │       └── noNode: consultProfessionalNode: Consider consulting a professional.
+│   └── noNode: checkPowerCableNode: Make sure the power cable is properly connected and the power strip is on.
+│       └── noNode: consultProfessionalNode: Consider consulting a professional.
+└── noNode: checkHardwareIssuesNode: Are there any hardware issues like unusual noises or overheating?
+    ├── yesNode: unusualNoisesNode: Is the computer making any unusual noises?
+    │   ├── yesNode: checkCablesNode: Check for loose cables and components inside the case.
+    │   └── noNode: overheatingNode: Is the computer overheating?
+    │       ├── yesNode: workingFansNode: Ensure that all fans are working and the heatsinks are properly seated.
+    │       └── noNode: safeModeNode: Check if the computer works in safe mode.
+    │           ├── yesNode: updateDriversNode: Try updating drivers or reinstalling the OS.
+    │           └── noNode: consultProfessionalNode: Consider consulting a professional.
+    └── noNode: overheatingNode: Is the computer overheating?
+        ├── yesNode: workingFansNode: Ensure that all fans are working and the heatsinks are properly seated.
+        └── noNode: safeModeNode: Check if the computer works in safe mode.
+            ├── yesNode: updateDriversNode: Try updating drivers or reinstalling the OS.
+            └── noNode: consultProfessionalNode: Consider consulting a professional.
