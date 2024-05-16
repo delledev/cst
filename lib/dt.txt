@@ -1,0 +1,13 @@
+import { DecisionTreeNode } from './decisionmaker.ts'; // Assuming DecisionTreeNode is in a separate file
+
+describe('DecisionTreeNode', () => {
+    it('should simulate asking a question and resolve with user response', async () => {
+        const question = "Is the computer completely unresponsive when you try to turn it on?";
+        const expectedResponse = true; // Assuming the user responds with true
+
+        const node = new DecisionTreeNode(question);
+        const userResponse = await node.ask();
+
+        expect(userResponse).toEqual(expectedResponse);
+    });
+});
