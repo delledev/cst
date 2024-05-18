@@ -3,9 +3,8 @@ initialNode: Does the computer have power issues?
 │   ├── yesNode: powerSupplyFanNode: Is the power supply fan spinning?
 │   │   ├── yesNode: displayMonitorNode: Is there any display on the monitor?
 │   │   │   ├── yesNode: beepSoundNode: Can you hear any beeps when you start the computer?
-│   │   │   │   ├── yesNode: beepCodeConclusion: Beep codes indicate a problem with the memory. 
-│   │   │   │   │            Try reseating the RAM sticks or replacing them. Consult the internet 
-│   │   │   │   │            for beep codes corresponding to your motherboard to determine the issue.
+│   │   │   │   ├── yesNode: beepCodeConclusion:Consult the internetfor beep codes corresponding
+│   │   │   │   │            to your motherboard to determine the issue.
 │   │   │   │   └── noNode: removeComponentsNode: There may be an issue with the motherboard or other components. 
 │   │   │   │                Try removing non-essential components and see if it boots.
 │   │   │   │                ├── noNode: checkHardwareIssuesNode: Are there any hardware issues like unusual noises or overheating?
