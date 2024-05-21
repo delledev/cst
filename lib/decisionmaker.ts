@@ -227,6 +227,11 @@ export const initialNode = new DecisionTreeNode(
 removeComponentsNode.noNode = checkHardwareIssuesNode;
 checkPowerCableNode.noNode = consultProfessionalNode;
 powerSupplyCheckNode.noNode = consultProfessionalNode;
-checkMonitorConnectionNode.noNode = consultProfessionalNode;
+checkMonitorConnectionNode.noNode = new DecisionTreeNode(
+    "Mönitörü ve bağlantıları kontrol edip tekrar deneyin lütfen.",
+    null,
+    null,
+    "Mönitörü ve bağlantıları kontrol edip tekrar deneyin lütfen."
+);
 checkCablesNode.noNode = consultProfessionalNode;
 workingFansNode.noNode = consultProfessionalNode;
